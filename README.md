@@ -13,3 +13,49 @@ The server will provide an API to post new and fetch past temperature readings f
 This repository covers the Python solution, you can find the Java solution <a href="https://github.com/lukeplechaty/week10project">Here</a>
 
 ---
+
+#### Set up the environment on a target SBC like the Raspberry Pi
+
+Check you have python installed
+
+        $ python --version
+        Python 3.12.3
+
+If you get the following:
+
+        zsh: command not found python
+
+Google installing python for your system, before continuing.
+
+1.  Create a directory to hold your python server and cd into it
+
+        $ mkdir server
+        $ cd server
+
+2.  Create a python environment, This will create and environment where any packages you install will be kept local to this project. the .venv is a hidden directory, note it can be given any other name.
+
+        $ python -m venv .venv
+
+3.  You need to activate the environment before you can use it, note command line prompt will change to show it is active. (you can type 'deactivate' to leave the environment later.)
+
+        $ source .venv/bin/activate
+
+4.  Now you are in the environment you can use pip to install modules ...
+
+        $ pip install fastapi uvicorn
+
+5.  build a simple test server, use a text editor to create a file server.py containing the following:
+
+        from fastapi import FastAPI
+
+        app = FastAPI()
+
+        @app.get("/")
+        def root():
+                return {"message": "Hello World"}
+
+6.  run the server using uvicorn
+
+        $ uvicorn server:app --host 0.0.0.0 --port 8000
+
+Now visit localhost:8000 to see the server is working.
