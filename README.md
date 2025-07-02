@@ -92,4 +92,12 @@ Below we have a post route to accept sensor name, temperature value and time, th
 
 #### Writing to the database
 
-TBD
+TBD note to self: test sensor code created and tested, just this to write up
+
+---
+
+---
+
+https://supabase.com/docs/reference/python/introduction  
+https://code.visualstudio.com/docs/python/tutorial-fastapi  
+https://www.tutorialspoint.com/sqlite/sqlite_python.htm
