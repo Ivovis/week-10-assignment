@@ -16,7 +16,7 @@ This repository covers the Python solution, you can find the Java solution <a hr
 
 #### Set up the environment on a target SBC like the Raspberry Pi
 
-Check you have python installed
+Check you have python installed, any version above 3.10
 
         $ python --version
         Python 3.12.3
@@ -36,11 +36,15 @@ Google installing python for your system, before continuing.
 
         $ python -m venv .venv
 
-3.  You need to activate the environment before you can use it, note command line prompt will change to show it is active. (you can type 'deactivate' to leave the environment later.)
+3.  You need to activate the environment before you can use it, note the command line prompt will change to show it is active. (you can type 'deactivate' to leave the environment later.)
 
-        $ source .venv/bin/activate
+        Linux $ source .venv/bin/activate
 
-4.  Now you are in the environment you can use pip to install modules ...
+        Windows CMD $  .venv\Scripts\activate.bat
+
+        PowerShell  $   .venv\Scripts\activate.ps1
+
+4.  Now you are in the environment you can use pip to install packages ...
 
         $ pip install fastapi uvicorn
 
@@ -59,3 +63,33 @@ Google installing python for your system, before continuing.
         $ uvicorn server:app --host 0.0.0.0 --port 8000
 
 Now visit localhost:8000 to see the server is working.
+
+fastAPI has a neat trick, it documents its routes and provides interactive access for testing in the browser, if you visit localhost:8000/docs, later when you add post routes you will be able to test them using the docs.
+
+Below we have a post route to accept sensor name, temperature value and time, these are all defined as string to allow flexibility in the format so '33C', '33' and '33 centigrade' can all be used and the date can be in any short or long form format.
+
+        from fastapi import FastAPI
+        from pydantic import BaseModel
+
+        # UpdateData
+        class UpdateData(BaseModel):
+                name:str
+                value:str
+                time:str
+
+        app = FastAPI()
+
+        @app.get("/")
+        def root():
+                return {"message": "Hello World"}
+
+        @app.post("/update")
+        def add_reading(data:UpdateData):
+                print(F"sensor:{data.name} value:{data.value} time:{data.time}")
+                return{"message":"reading accepted"}
+
+---
+
+#### Writing to the database
+
+TBD
