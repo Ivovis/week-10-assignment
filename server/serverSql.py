@@ -1,7 +1,7 @@
 ''' 
         serverSql.py
         simple server that stores sensor readings into a sqLite3 database
-        includeds example get routes 
+        includes example get routes 
 
         note FastAPI functions will run in different threads, so database connections must be opened and closed for each
 '''
@@ -68,7 +68,7 @@ def all():
     jsonData = [dict(zip(keys,item)) for item in rows] # convert tuples to list of dictionaries
     print(jsonData)
 
-    # the dicionaries are converted to json here, keep in mind 
+    # the dictionaries are converted to json here, keep in mind 
     # fastAPI will escape the quotes so we dont use this, its here as an example.
     jsonStr  = json.dumps(jsonData) # convert to json
     print(jsonStr)

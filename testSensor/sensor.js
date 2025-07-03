@@ -13,7 +13,7 @@ function sendUpdate() {
 
   console.log(`sending: ${JSON.stringify(data)} `);
 
-  fetch("http://localhost:8000/update", {
+  fetch("http://localhost:8000/add", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
