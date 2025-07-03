@@ -1,3 +1,7 @@
+'''
+        server.py
+        simple server to test "/" route
+'''
 from fastapi import FastAPI     # type: ignore
 from pydantic import BaseModel  # type: ignore
 
