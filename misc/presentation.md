@@ -27,9 +27,9 @@ Luke and Chris | Date: July 4, 2025
 
 # Java
 
-- Final major point
-- Support with evidence or anecdote
-- Keep slides uncluttered
+- Easy install and run
+- More work to put in to make it
+- 2 Libries for JSON and SQLite
 
 ---
 
@@ -48,4 +48,5 @@ Luke and Chris | Date: July 4, 2025
 - Example projects can be found in the repositories:
   -- https://github.com/Ivovis/week-10-assignment
   -- https://github.com/lukeplechaty/week10project
+  <img src="qr_link.png" width=200 float="right">
 - Any Questions?
