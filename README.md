@@ -209,7 +209,7 @@ I chose to use mySql3 but there are other more complex and sophisticated package
             return (jsonData)
 ```
 
-Note that the database connections need to be created within the scope of each route function, this is because the fastAPI package runs each of these is a different thread
+Note that the database connections need to be created within the scope of each route function, this is because the fastAPI package runs each of these in a different thread
 
 ---
 
